@@ -16,19 +16,24 @@ DWSADYFGHGGETXUSZLRMZHPFAVYVLPERKFXGVISOXSDAZWPTPWXMYXFFEFQKZRWSNKKBTS
 OGDSVNHEZHDJYCRLQWLWCQYFVHEKZZZQQHHQDWWHZCQSBMZYUCBQYCCIMSIWXBMCXOHLOZ
 """
 
-plain = ""
-asci = ""
-key = 26
-cipher_chars = [char for char in cipher]
-idx =0
-for c in cipher_chars:
-    if idx>=key: idx= idx%key
-    s = 65 + ((ord(c) + idx) % 26)
-    asci = asci + str(s)
-    asci = asci + ' '
-    idx = idx + 1
-    plain = plain + chr(s)
+def frequency_analysis(text,space):
+    analysis = {}
+    characters = [char for char in text];
+    for i in range(0,len(text),space):
+        c = characters[i]
+        if c in analysis:
+            analysis[c] = analysis[c] + 1
+        else:
+            analysis[c] = 1
+    return analysis
+    
+def get_string(text, space):
+    analysis = ""
+    characters = [char for char in text];
+    for i in range(0,len(text),space):
+        c = characters[i]
+        analysis+=c
+    return analysis
 
-print(plain)
-
-print(asci)
+result = frequency_analysis(cipher.replace('\n', ''),8)
+print(get_string(cipher.replace('\n',''),8))
