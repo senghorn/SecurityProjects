@@ -1,3 +1,4 @@
+
 cipher = """ELFMASBQDXISZMNMHIBFEFQIMEUVNGLMLRETHAZAQPPDOTEGDEDONLYVZJNWHCKBLPPQWD
 QZZGFFUKDWCIXWPZKKSIDYBGBATBUMOWFMYGFBPKYVELFHRHBMDMESJLQMZVHSXMCPDIOW
 KJKLOVFGOWCBSIOOPAYVDEZWJYKORVFGOAYVHMMZJGDAEEORWYKQYWUYQOKQEXISZMNMCI
@@ -15,28 +16,40 @@ BIYHWSJYOIYGFCJZSAXMORKXDMYWQSWCSVRSGVEKDQXITSNNOLTRWWALXIXXPFADKBPXPH
 DWSADYFGHGGETXUSZLRMZHPFAVYVLPERKFXGVISOXSDAZWPTPWXMYXFFEFQKZRWSNKKBTS
 OGDSVNHEZHDJYCRLQWLWCQYFVHEKZZZQQHHQDWWHZCQSBMZYUCBQYCCIMSIWXBMCXOHLOZ
 """
+cipher = cipher.replace('\n','') ## Remove the substring
 
+## Vigenere Cipher Decryption
+def vigenere_decrypt(text, key):
+    alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    decrypted_text = ''
+    key_index = 0
+    for char in text:
+        shift = alphabet.index(key[key_index])
+        decrypted_char_index = (alphabet.index(char) - shift) % 26
+        decrypted_text += alphabet[decrypted_char_index]
+        key_index = (key_index + 1) % len(key)
+    return decrypted_text
 
-def frequency_analysis(text,space):
-    analysis = {}
-    characters = [char for char in text];
-    for i in range(0,len(text),space):
-        c = characters[i]
-        if c in analysis:
-            analysis[c] = analysis[c] + 1
-        else:
-            analysis[c] = 1
-    return analysis
-    
-def get_string( text, start,space):
-    analysis = ""
-    characters = [char for char in text];
-    for i in range(start,len(text),space):
-        c = characters[i]
-        analysis+=c
-    return analysis
+### Find partial key by looking for common word in English
+### https://en.wikipedia.org/wiki/Most_common_words_in_English
+###[['A', 'L', 'V'], 
+### ['E', 'T', 'A'], 
+### ['B', 'L', 'Q'], 
+### ['O', 'C', 'K'], 
+### ['G', 'L', 'W'], 
+### ['S', 'B', 'C'], 
+### ['G', 'Z', 'K'], 
+### ['I', 'X', 'R']]
 
-for i in range(8):
-    substring = get_string( cipher.replace('\n',''),i,8)
-    print(i,substring,"\n")
+partial_key = "LEBOWSKI"
+text= vigenere_decrypt(cipher,partial_key)
 
+key_length = len(partial_key)
+# add space for every 3 characters
+new_text = ""
+for i in range(0,len(text),8):
+    for j in range(i,i+key_length):
+        new_text += text[j]
+    new_text+= ' '
+
+print(text)
