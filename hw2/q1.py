@@ -38,5 +38,5 @@ def get_string( text, start,space):
 
 for i in range(8):
     substring = get_string( cipher.replace('\n',''),i,8)
-    print(i,substring,"\n")
+
 

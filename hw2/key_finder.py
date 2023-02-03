@@ -41,8 +41,8 @@ def vigenere_decrypt(text, key):
 ### ['G', 'Z', 'K'], 
 ### ['I', 'X', 'R']]
 
-partial_key = "LEBOWSKI"
-text= vigenere_decrypt(cipher,partial_key)
+partial_key = "LEBO"
+text= vigenere_decrypt(cipher,partial_key+"AAAA")
 
 key_length = len(partial_key)
 # add space for every 3 characters
