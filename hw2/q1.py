@@ -18,7 +18,11 @@ OGDSVNHEZHDJYCRLQWLWCQYFVHEKZZZQQHHQDWWHZCQSBMZYUCBQYCCIMSIWXBMCXOHLOZ
 
 
 def frequency_analysis(text,space):
+    text = text.upper() ## **************** Another conversion *****************
     analysis = {}
+    allLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    for c in allLetters:
+        analysis[c] = 0
     characters = [char for char in text];
     for i in range(0,len(text),space):
         c = characters[i]
@@ -38,5 +42,5 @@ def get_string( text, start,space):
 
 for i in range(8):
     substring = get_string( cipher.replace('\n',''),i,8)
-
+    print(i,substring,"\n")
 

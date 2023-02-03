@@ -1,19 +1,19 @@
-def p_variance(frequency, all_chars):
+def p_variance(fr, alphabets):
     total = 0.0
-    for x in frequency:
-        total+= frequency[x]
-
-    N = len(all_chars)
-    mean = total/N
+    for x in fr:
+        total+= fr[x]
+    N = len(alphabets)
+    mean = findmean(fr.values())
     sum = 0.0
-    for char in all_chars:
-        hz = frequency[char]
+    for char in alphabets:
+        hz = fr[char]
         curr = hz - mean
-        curr *= curr
+        curr = curr**2
         sum += curr
+    return sum/N
 
-    var_x =  sum/N
-    return var_x
+def findmean (arr):
+    return sum(arr)/len(arr)
 
 frequency = { "A": .08167, "B": .01492, "C": .02782, "D": .04253, "E": .12702, "F": .02228,
 "G": .02015, "H": .06094, "I": .06966, "J": .00153, "K": .00772, "L": .04025,
@@ -21,4 +21,4 @@ frequency = { "A": .08167, "B": .01492, "C": .02782, "D": .04253, "E": .12702, "
 "S": .06327, "T": .09056, "U": .02758, "V": .00978, "W": .02360, "X": .00150,
 "Y": .01974, "Z": .00074 }
 all_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-## print(p_variance(frequency,all_chars)) ## Q2.1
+## print("{:.4E}".format(p_variance(frequency,all_chars))) ## Q2.1

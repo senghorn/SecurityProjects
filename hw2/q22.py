@@ -12,11 +12,13 @@ seactinglawfullyandethicallyisyourresponsibilitycarefullyreadthecomput
 erfraudandabuseactcfaaoneofseveralfederallawsthatbroadlycriminalizesco
 mputerintrusioniehackingunderstandwhatthelawprohibitsifindoubtwecanref
 eryoutoanattorneypleasereviewtheuniversitysacceptableusepolicyconcerni
-ngproperuseofinformationtechnologyaswellasthestudentcodeasmembersofthe"""
+ngproperuseofinformationtechnologyaswellasthestudentcodeasmembersofthe""".upper()
 
 def divide_frequency(frequency, divisor):
+    total =0
     for s in frequency:
         frequency[s] = frequency[s]*1.0 / divisor
+        total += frequency[s]
     
     
 def wrapper_p_variance(plain):    
@@ -25,6 +27,7 @@ def wrapper_p_variance(plain):
     freq = frequency_analysis(plain,1)
     divide_frequency(freq,length)
     chars = freq.keys()
-    return p_variance(freq,chars)
+    result = p_variance(freq,chars)
+    return result
 
-# print(wrapper_p_variance(plainText)) ## Prints value of 2.2
+## print("{:.4E}".format(wrapper_p_variance(plainText))) ## Prints value of 2.2

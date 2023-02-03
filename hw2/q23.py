@@ -23,5 +23,5 @@ for k in keys:
 
 i = 0
 for s in encrypted_strings:
-    print(keys[i],wrapper_p_variance(s)) ## Prints the value for 2.3
+    print("{:.4E}".format(wrapper_p_variance(s))) ## Prints the value for 2.3
     i += 1

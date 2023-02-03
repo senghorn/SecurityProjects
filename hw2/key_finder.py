@@ -41,7 +41,7 @@ def vigenere_decrypt(text, key):
 ### ['G', 'Z', 'K'], 
 ### ['I', 'X', 'R']]
 
-partial_key = "LEBO"
+partial_key = "LEBOWSKI"
 text= vigenere_decrypt(cipher,partial_key+"AAAA")
 
 key_length = len(partial_key)
