@@ -30,7 +30,6 @@ for k in keys:
     freq_variances = []
     for s in substrings:
         p= wrapper_p_variance(s)
-        print("pop variance",p)
         total += p
     pv = total/len(k)
     print(k,"{:.4E}".format(pv))
