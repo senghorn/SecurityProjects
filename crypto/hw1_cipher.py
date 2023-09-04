@@ -1,9 +1,4 @@
-## Manual analysis: XWK and QOC are repeated, so they are likely to be "the" and "and" respectively.
-
 cipher = "J OBIC KCBZ QOC LGBVV VNGGBPFV BMZ VJYMCZ FS XWK QOC XJMBG SKWUCLQ BMZ KCBZN XWK WFK LWFKVC WM TWZCKM LKNSQWYKBSON"
-cipher = cipher.lower()
-# The cipher is encrypted with 2 layers. First layer is substitution cipher, second layer is caeser cipher. To decrypt it,
-# we need to first decrypt the caeser cipher, then decrypt the substitution cipher.
 
 # Decrypt the caeser cipher
 def decrypt_caeser(cipher, shift):
@@ -37,5 +32,9 @@ def char_frequency(cipher):
     freq = sorted(freq.items(), key=lambda x: x[1], reverse=True)
     return freq
 
-for i in range(1, 26):
-    print(char_frequency(decrypt_caeser(cipher, i)))
+# for i in range(1, 26):
+#     print(char_frequency(decrypt_caeser(cipher, i)))
+
+print(char_frequency(cipher))
+#                                  "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "BPLZCXYOJURGTMWSAKVQFIEHND"
+print(decrypt_substitution(cipher, "BALZCFGOJVRENMWPTKSQUIOXYD"))
