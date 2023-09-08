@@ -12,10 +12,11 @@ def decrypt_caeser(cipher, shift):
 
 # Decrypt the substitution cipher
 def decrypt_substitution(cipher, key):
+    order =  "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     plain = ""
     for c in cipher:
         if c.isalpha():
-            plain += chr(key.index(c) + ord('A'))
+            plain += key[c]
         else:
             plain += c
     return plain
@@ -36,5 +37,34 @@ def char_frequency(cipher):
 #     print(char_frequency(decrypt_caeser(cipher, i)))
 
 print(char_frequency(cipher))
-#                                  "ABCDEFGHIJKLMNOPQRSTUVWXYZ" "BPLZCXYOJURGTMWSAKVQFIEHND"
-print(decrypt_substitution(cipher, "BALZCFGOJVRENMWPTKSQUIOXYD"))
+print(cipher)
+keys = {
+    "A": "B",
+    "B": "A",
+    "C": "E",
+    "D": "Z",
+    "E": "C",
+    "F": "U",
+    "G": "L",
+    "H": "O",
+    "I": "V",
+    "J": "I",
+    "K": "R",
+    "L": "C",
+    "M": "N",
+    "N": "Y",
+    "O": "H",
+    "P": "B",
+    "Q": "T",
+    "R": "K",
+    "S": "P",
+    "T": "M",
+    "U": "J",
+    "V": "S",
+    "W": "O",
+    "X": "F",
+    "Y": "G",
+    "Z": "D"
+}
+
+print(decrypt_substitution(cipher, keys))

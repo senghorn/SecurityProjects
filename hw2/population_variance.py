@@ -20,5 +20,5 @@ frequency = { "A": .08167, "B": .01492, "C": .02782, "D": .04253, "E": .12702, "
 "M": .02406, "N": .06749, "O": .07507, "P": .01929, "Q": .00095, "R": .05987,
 "S": .06327, "T": .09056, "U": .02758, "V": .00978, "W": .02360, "X": .00150,
 "Y": .01974, "Z": .00074 }
-all_chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+all_chars = "ABCDEFGHISKLMNOPQRJTUVWXYZ"
 ## print("{:.4E}".format(p_variance(frequency,all_chars))) ## Q2.1
